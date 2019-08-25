@@ -111,7 +111,10 @@ def main():
     "New main routine that does screen setup and calls a warhol"
     window = turtle.Screen()
     window.setup(1500, 1000)
-    warhol(0,0)
+    warhol(0, 0, yellow)
+    warhol(-350, 0, blue)
+    warhol(-350, -350, green)
+    warhol(0, -350, red)
     # need to call this or the screen will go away immediately
     turtle.done()
 
