@@ -12,8 +12,9 @@ import random
 import sys
 
 
-window = turtle.Screen()
-window.setup(1000, 500, 260, 100)
+
+yellow = [1, 1, 0]
+
 
 def make_flower_get_position(x, y):
     """
@@ -32,6 +33,7 @@ def make_flower(x, y, petals, petal_color, center_color):
     petals and using colors
     """
     flower = turtle.Turtle()
+    flower.speed(0)
     flower.hideturtle()
     flower.penup()
     flower.setx(x)
@@ -50,24 +52,31 @@ def make_flower(x, y, petals, petal_color, center_color):
     ))
 
 
+def warhol(origin_x=0, origin_y=0, background_color=yellow):
+    """
+    - Refactored to only use four colors, should choose some prettier ones
+    - The background color is not used yet
+    """
+    color1 = [0.691, 0.952, 0.933]
+    color2 = [0.181, 0.563, 0.706]
+    color3 = [0.471, 0.115, 0.637]
+    color4 = [0.290, 0.376, 0.607]
+
+
+    make_flower(x=origin_x + 112.0, y=origin_y + 49.0, petals=9, petal_color=color1, center_color=color3)
+    make_flower(x=origin_x + -68.0, y=origin_y + -95.0, petals=7, petal_color=color2, center_color=color1)
+    make_flower(x=origin_x + 29.0, y=origin_y + -26.0, petals=5, petal_color=color3, center_color=color1)
+    make_flower(x=origin_x + -64.0, y=origin_y + 34.0, petals=6, petal_color=color2, center_color=color4)
+
+
+
+
 def main():
-    """
-    First ran 'main_old' (below) a few times and clicked randomly.
-    This looked nice and I captured it from the print messages
-    I rounded the color numbers so it is easier to read.
-    """
-    make_flower(x=112.0, y=49.0, petals=9, petal_color=[0.691, 0.952, 0.933], center_color=[0.474, 0.135, 0.776])
-    make_flower(x=-68.0, y=-95.0, petals=7, petal_color=[0.181, 0.563, 0.706], center_color=[0.614, 0.701, 0.063])
-    make_flower(x=29.0, y=-26.0, petals=5, petal_color=[0.471, 0.115, 0.637], center_color=[0.639, 0.072, 0.988])
-    make_flower(x=-64.0, y=34.0, petals=6, petal_color=[0.173, 0.823, 0.970], center_color=[0.290, 0.376, 0.607])
+    "New main routine that does screen setup and calls a warhol"
+    window = turtle.Screen()
+    window.setup(1000, 500, 260, 100)
+    warhol(0,0)
     # need to call this or the screen will go away immediately
-    turtle.done()
-
-
-def main_old():
-    ""
-    window.onclick(make_flower_get_position)
-    window.listen()
     turtle.done()
 
 
