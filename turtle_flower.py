@@ -14,6 +14,7 @@ import sys
 
 
 yellow = [1, 1, 0]
+black  = [0, 0, 0]
 
 
 def make_flower_get_position(x, y):
@@ -52,6 +53,24 @@ def make_flower(x, y, petals, petal_color, center_color):
     ))
 
 
+def make_frame(origin_x, origin_y, background_color):
+    "Draw and fill a frame for our warhol flowers"
+    frame = turtle.Turtle()
+    # frame.speed(0)
+    # frame.hideturtle()
+    frame.penup()
+    frame.setx(origin_x - 150)
+    frame.sety(origin_y - 150)
+    frame.pencolor(black)
+    frame.fillcolor(background_color)
+    frame.begin_fill()
+    frame.pendown()
+    for _ in range(4):
+        frame.forward(350)
+        frame.left(90)
+    frame.end_fill()
+
+
 def warhol(origin_x=0, origin_y=0, background_color=yellow):
     """
     - Refactored to only use four colors, should choose some prettier ones
@@ -62,11 +81,12 @@ def warhol(origin_x=0, origin_y=0, background_color=yellow):
     color3 = [0.471, 0.115, 0.637]
     color4 = [0.290, 0.376, 0.607]
 
+    make_frame(origin_x, origin_y, background_color)
 
-    make_flower(x=origin_x + 112.0, y=origin_y + 49.0, petals=9, petal_color=color1, center_color=color3)
-    make_flower(x=origin_x + -68.0, y=origin_y + -95.0, petals=7, petal_color=color2, center_color=color1)
-    make_flower(x=origin_x + 29.0, y=origin_y + -26.0, petals=5, petal_color=color3, center_color=color1)
-    make_flower(x=origin_x + -64.0, y=origin_y + 34.0, petals=6, petal_color=color2, center_color=color4)
+    make_flower(x=origin_x + 112.0, y=origin_y + 69.0, petals=9, petal_color=color1, center_color=color3)
+    make_flower(x=origin_x + -68.0, y=origin_y + -75.0, petals=7, petal_color=color2, center_color=color1)
+    make_flower(x=origin_x + 29.0, y=origin_y + -6.0, petals=5, petal_color=color3, center_color=color1)
+    make_flower(x=origin_x + -64.0, y=origin_y + 54.0, petals=6, petal_color=color2, center_color=color4)
 
 
 
