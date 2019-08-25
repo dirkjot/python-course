@@ -15,6 +15,9 @@ import sys
 
 yellow = [1, 1, 0]
 black  = [0, 0, 0]
+blue = [0, 0, 1]
+green = [0, 1, 0]
+red = [1, 0, 0]
 
 
 def make_flower_get_position(x, y):
@@ -71,6 +74,16 @@ def make_frame(origin_x, origin_y, background_color):
     frame.end_fill()
 
 
+def center_dot():
+    "draw dot at 0,0"
+    dot = turtle.Turtle()
+    dot.pencolor([0,0,0])
+    dot.pensize(10)
+    dot.setx(0)
+    dot.sety(0)
+    dot.dot()
+
+
 def warhol(origin_x=0, origin_y=0, background_color=yellow):
     """
     - Refactored to only use four colors, should choose some prettier ones
@@ -81,8 +94,11 @@ def warhol(origin_x=0, origin_y=0, background_color=yellow):
     color3 = [0.471, 0.115, 0.637]
     color4 = [0.290, 0.376, 0.607]
 
-    make_frame(origin_x, origin_y, background_color)
+    origin_x = origin_x + 150
+    origin_y = origin_y + 150
 
+    center_dot()
+    make_frame(origin_x, origin_y, background_color)
     make_flower(x=origin_x + 112.0, y=origin_y + 69.0, petals=9, petal_color=color1, center_color=color3)
     make_flower(x=origin_x + -68.0, y=origin_y + -75.0, petals=7, petal_color=color2, center_color=color1)
     make_flower(x=origin_x + 29.0, y=origin_y + -6.0, petals=5, petal_color=color3, center_color=color1)
@@ -94,7 +110,7 @@ def warhol(origin_x=0, origin_y=0, background_color=yellow):
 def main():
     "New main routine that does screen setup and calls a warhol"
     window = turtle.Screen()
-    window.setup(1000, 500, 260, 100)
+    window.setup(1500, 1000)
     warhol(0,0)
     # need to call this or the screen will go away immediately
     turtle.done()
