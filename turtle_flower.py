@@ -13,11 +13,11 @@ import sys
 
 
 
-yellow = [1, 1, 0]
+yellow = [.7, .7, 0]
 black  = [0, 0, 0]
-blue = [0, 0, 1]
-green = [0, 1, 0]
-red = [1, 0, 0]
+blue = [0, 0, .7]
+green = [0, .7, 0]
+red = [.7, 0, 0]
 
 
 def make_flower_get_position(x, y):
@@ -89,6 +89,7 @@ def warhol(origin_x=0, origin_y=0, background_color=yellow):
     - Refactored to only use four colors, should choose some prettier ones
     - The background color is not used yet
     """
+
     color1 = [0.691, 0.952, 0.933]
     color2 = [0.181, 0.563, 0.706]
     color3 = [0.471, 0.115, 0.637]
