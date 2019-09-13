@@ -15,9 +15,9 @@ import sys
 
 yellow = [.7, .7, 0]
 black  = [0, 0, 0]
-blue = [0, 0, .7]
-green = [0, .7, 0]
-red = [.7, 0, 0]
+blue = [0, 0, 1]
+green = [0, 1, 0]
+red = [1, 0, 0]
 
 
 def make_flower_get_position(x, y):
